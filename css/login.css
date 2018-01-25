@@ -1,0 +1,111 @@
+/*nav*/
+nav {
+  width: 100%;
+  height: 42px;
+  margin: 0 auto; }
+  nav a {
+    color: black;
+    font-size: 12px;
+    margin-left: 12px;
+    margin-right: 12px;
+    display: inline-block; }
+    nav a:hover {
+      text-decoration: underline; }
+  nav .nav-f {
+    padding-left: 32%; }
+
+/*section-login*/
+.log {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 90px; }
+  .log h3 {
+    font-size: 24px;
+    color: #636363;
+    padding-left: 225px; }
+  .log .log-L {
+    width: 421px;
+    height: 300px;
+    margin-left: 225px;
+    float: left;
+    margin-right: 10px;
+    border: 1px solid #d9d9d9; }
+    .log .log-L .L-title {
+      line-height: 38px;
+      box-sizing: border-box;
+      margin: 20px 29px 0;
+      font-size: 14px;
+      color: #636363;
+      border-bottom: 1px solid #d9d9d9; }
+    .log .log-L .form-instructions {
+      margin-top: 20px;
+      margin-left: 29px;
+      line-height: 20px;
+      font-size: 12px;
+      color: #a0a0a0; }
+    .log .log-L a {
+      width: 78px;
+      height: 28px;
+      font-size: 12px;
+      line-height: 28px;
+      text-align: center;
+      color: white;
+      background: black;
+      float: right;
+      margin-right: 29px; }
+  .log .log-R {
+    width: 421px;
+    height: 300px;
+    border: 1px solid #d9d9d9;
+    float: left; }
+    .log .log-R .L-title {
+      line-height: 38px;
+      box-sizing: border-box;
+      margin: 20px 29px 0;
+      font-size: 14px;
+      color: #636363;
+      border-bottom: 1px solid #d9d9d9; }
+    .log .log-R form {
+      padding-top: 12px;
+      line-height: 56px;
+      color: #636363;
+      font-size: 12px; }
+      .log .log-R form label {
+        padding-left: 29px; }
+      .log .log-R form .user {
+        padding-right: 56px; }
+      .log .log-R form .pass {
+        padding-right: 68px; }
+      .log .log-R form input {
+        width: 210px;
+        height: 30px;
+        line-height: 30px;
+        background: #ebebeb;
+        border: none;
+        outline: none; }
+      .log .log-R form .forgetPass {
+        font-size: 12px;
+        color: #787878;
+        line-height: 40px;
+        padding-left: 130px;
+        text-decoration: underline; }
+      .log .log-R form .Logins {
+        width: 54px;
+        height: 28px;
+        font-size: 12px;
+        line-height: 28px;
+        text-align: center;
+        color: white;
+        background: black;
+        float: right;
+        margin-right: 29px; }
+    .log .log-R .otherLogin {
+      padding-left: 130px;
+      font-size: 12px;
+      line-height: 6px;
+      color: #a0a0a0; }
+    .log .log-R a {
+      color: black;
+      font-size: 20px; }
+      .log .log-R a .icon-weixin {
+        padding-left: 130px; }
