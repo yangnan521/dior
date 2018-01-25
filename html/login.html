@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Expires" content="0">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-control" content="no-cache">
+	<meta http-equiv="Cache" content="no-cache">
+    <title>login</title>
+<link rel="stylesheet" type="text/css" href="../css/public.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
+</head>
+<body>
+<!-- header -->
+<header>
+	<div class="header-one">
+		<a href="index.html"><i class="iconfont icon-home"></i></a>
+		<a href="women.html">女士</a>
+		<a href="#">男士</a>
+		<a href="perfume.html">香氛</a>
+		<a href="#">彩妆</a>
+		<a href="pdetails.html">护肤</a>
+		<a href="#">珠宝</a>
+		<a href="#">腕表</a>
+		<a href="#">BABY DIOR</a>
+	</div>
+	<div class="header-two">
+		<a href="#">DIORMAG</a>
+		<a href="#">DIOR品牌</a>
+		<a href="#">DIORTV</a>
+	</div>
+</header>
+<!-- banner -->
+	<div class="banner">
+	<img src="../img/dior.png"/>
+	<div class="seachall">
+	<div class="seach"><input type="text" placeholder="搜索"/>
+		<a href="#"><i class="iconfont icon-search"></i></a></div>
+		<a href="#"><i class="iconfont icon-tubiao114"></i></a>
+		<a href="login.html"><i class="iconfont icon-jyonghu3"></i></a>
+		<a href="#"><i class="iconfont icon-bagregular"></i></a>
+	</div>
+	</div>
+<!-- nav -->
+	<nav>
+		<a href="#" class="nav-f">新品</a>
+		<a href="#">包具</a>
+		<a href="#">鞋履</a>
+		<a href="#">成衣</a>
+		<a href="#">首饰</a>
+		<a href="#">太阳眼镜</a>
+		<a href="#">配饰</a>
+		<a href="#">高级定制</a>
+	</nav>
+
+<div class="log">
+      <h3>登录或创建帐户</h3>
+      <div class="log-L">
+		   <p class="L-title">注册Dior账户</p>
+		    <p class="form-instructions">注册Dior账号以便追踪您的订单，管理收货地址，获取更多<br/>个性化信息</p>
+			<a href="register.html">创建帐户</a>
+      </div>
+      <div class="log-R">
+		   <p class="L-title">Dior会员登录</p>
+		   <span id="erro"></span>
+		    <form method="post" action="../php/logincheck.php" id="f">
+				<label class="user">手机号*</label> 
+				<input id="phone"  name="userPhone" class="inputs userPhone" type="text" placeholder=" 手机号"/><span id="spanphone"></span><br/>
+
+				<label class="pass">密码*</label> 
+				<input id="pass"  name="userPass" class="inputs userPass" type="password" placeholder=" 密码"/><span id="spanpass"></span><br/>
+				<a href="#" class="forgetPass">忘记密码？</a>
+			 <input class="Logins" type="submit" value="登录" />
+			</form>
+			
+			
+			<div class="otherLogin"><span>使用第三方账号登录</span></div>
+			
+			<a href="#"><i class="iconfont icon-weixin"></i>
+			<i class="iconfont icon-zhifubaozhifu"></i></a>
+      </div>
+
+  </div>
+<!-- footer -->
+<footer>
+	<div class="foot">
+		<div class="f-left">
+			<p class="LinkA">客服服务</p>
+			<a href="#" class="LinkB">联系我们</a>
+			<p class="LinkC">地区/国家</p>
+			<div class="country">
+			<i class="iconfont icon-suo2"></i>
+			<input type="text" value="中国(CNY￥)"/>
+			<span> &lt; </span>
+			</div>
+			<div class="nav">
+			<p><a href="#">
+			<img src="../img/icon.png"/> 沪公网安备 31010602002343号</a></p>
+			<p><a href="#">
+			<img src="../img/icon1.png"/>沪ICP备10014525号</a></p>
+			<p>路威酩轩香水化妆品（上海）有限公司</p>
+			<p>上海市南京西路1266号恒隆广场1期29F</p>
+			</div>
+		</div>
+		<div class="f-middle">
+			<a href="#">精品店</a>
+			<a href="#">工作机会</a>
+			<a href="#">使用条款</a>
+			<a href="#">数据保护章程</a>
+		</div>
+		<div class="f-right">
+			<p class="ser">电子通信</p>
+			<p>率先获取最新作品的信息及Dior迪奥各领域的独家消息:</p>
+			<div class="emil">
+				<i class="iconfont icon-youxiang1"></i>
+				<input  id="tit" type="text" placeholder="请输入您的邮箱" />
+			
+			</div>
+			<input type="button" id="btn" value="确定"/>
+
+			<span>关注我们</span>
+			<b><a href="#"><i class="iconfont icon-sina"></i></a></b>
+		</div>
+	</div>
+</footer>
+</body>
+</html>
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+
+	$("#phone").blur(function(){
+		if($("#phone").val()==""){
+			$("#erro").html("亲，用户名不能为空！");
+			$("#erro").css({"color":"red","font-size":"12px","padding-left":"160px"});
+		}
+
+		 var regPhone = /^1(3|4|5|7|8|9)\d{9}$/;  //一共十一位数，1开头，后面是十位数字
+		var userphone = $("#phone").val();
+		if(!regPhone.test(userphone)){
+			$("#spanphone").html("×");
+			$("#spanphone").css({"color":"red"});
+		}else{
+			$("#spanphone").html("√");
+		}
+		
+	});
+
+	$("#pass").blur(function(){
+		if($("#pass").val()==""){
+		$("#erro").html("亲，密码不能为空！");
+			$("#erro").css({"color":"red","font-size":"12px","padding-left":"160px"});
+	}
+		 var regPass =/^[a-zA-Z]\w{5,19}$/; 
+		var userpass = $("#pass").val();
+		if(!regPass.test(userpass)){
+			$("#spanpass").html("×");
+ 			$("#spanpass").css({"color":"red"});
+		}else{
+			$("#spanpass").html("√");
+		}
+	});
+
+
+   
+});
+
+</script>
