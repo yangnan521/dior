@@ -13,3 +13,48 @@ nav {
       text-decoration: underline; }
   nav .nav-f {
     padding-left: 32%; }
+
+/*section*/
+section {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 40px; }
+  section .shop {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 30px;
+    color: #636363; }
+    section .shop .goostop {
+      padding-left: 20px;
+      font-size: 18px;
+      line-height: 80px; }
+      section .shop .goostop span {
+        margin-right: 20px; }
+        section .shop .goostop span b {
+          font-weight: 100;
+          color: #b2b2b2; }
+    section .shop h2 {
+      font-weight: 100;
+      font-size: 14px;
+      margin: 0px 20px;
+      line-height: 30px;
+      color: #636363;
+      border-bottom: 1px solid #c0c0c0; }
+    section .shop .goodshead {
+      padding-left: 20px;
+      margin: 10px auto;
+      background: white;
+      height: 30px; }
+      section .shop .goodshead .goods {
+        margin-left: 130px;
+        margin-right: 340px; }
+      section .shop .goodshead .goodsnum {
+        margin-right: 110px; }
+      section .shop .goodshead .goodsprice {
+        margin-right: 245px; }
+    section .shop ul li {
+      list-style: none; }
+      section .shop ul li img {
+        width: 81px;
+        height: 100px; }

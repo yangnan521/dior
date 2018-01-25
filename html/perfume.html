@@ -78,19 +78,20 @@
 		<h2>精准定制</h2></div>
 		<p class="number-text">5款针对性精华，满足不同肌肤需求：提拉紧塑、衡肤哑致、唤采光泽、舒缓修护和盈弹抚纹。
 		蕴含抗氧化鸢尾精萃，与针对性活性成分，卓能配方源自天然，提升肌肤年轻力。精华乳霜、叠加混搭，满足不同肌肤需求。</p></div>
-<a href="#" class="top-middle">
-		<img src="../img/x1.jpg"/>
-		<div class="one-bottom">
-			<object><a href="#" class="tit" id="La">
-			 <h4>未来新肌</h4>
-			<p>提拉紧塑精华</p>
-			<span>￥790.00-30ML</span>
-			</a></object>
-			<object><a href="#" class="btn">直接购买</a></object>
-		</div>
-	
-</a>
-<a href="#" class="top-bottom">
+		<!-- <a href="#" class="top-middle">
+				<img src="../img/x1.jpg"/>
+				<div class="one-bottom">
+					<object><a href="#" class="tit" id="La">
+					 <h4>未来新肌</h4>
+					<p>提拉紧塑精华</p>
+					<span>￥790.00-30ML</span>
+					</a></object>
+					<object><a href="#" class="btn">直接购买</a></object>
+			</div> 
+				
+			
+		</a> -->
+<!-- <a href="#" class="top-middle">
 		<img src="../img/x2.jpg"/>
 		<div class="one-bottom">
 				<object><a href="#" class="tit" id="La">
@@ -99,11 +100,10 @@
 			<span>￥790.00-30ML</span>
 			</a></object>
 			<object><a href="#" class="btn">直接购买</a></object>
-		</div>
-	
-</a>
 	</div>
-	<div class="p-middle">
+</a> -->
+	</div>
+	<!-- <div class="p-middle">
 		<a href="#" class="top-bottom">
 		<img src="../img/x3.jpg"/>
 		<div class="one-bottom">
@@ -120,7 +120,7 @@
 		<img src="../img/x4.jpg"/>
 		<div class="one-bottom">
 				<object><a href="#" class="tit" id="La">
-			 <h4>未来新肌</h4>
+			 <h4 class="">未来新肌</h4>
 			<p> 唤采光泽精华</p>
 			<span>￥790.00-30ML</span>
 			</a></object>
@@ -140,16 +140,16 @@
 		</div>
 	
 </a>
-	</div>
-	<div class="p-bottom">
-	<div class="p-top">
+	</div> -->
+	 <div class="p-bottom">
+	<!--<div class="p-top">
 		<div class="top-left">
 		<div class="number-header">
-		<img src="../img/two.jpg" class="img--loaded">
+		<img src="../img/two.jpg" class="img-loaded">
 		<h2>精准定制</h2></div>
 		<p class="number-text">5款针对性精华，满足不同肌肤需求：提拉紧塑、衡肤哑致、唤采光泽、舒缓修护和盈弹抚纹。
-		蕴含抗氧化鸢尾精萃，与针对性活性成分，卓能配方源自天然，提升肌肤年轻力。精华乳霜、叠加混搭，满足不同肌肤需求。</p></div>
-<a href="#" class="top-middle">
+		蕴含抗氧化鸢尾精萃，与针对性活性成分，卓能配方源自天然，提升肌肤年轻力。精华乳霜、叠加混搭，满足不同肌肤需求。</p></div> -->
+<!-- <a href="#" class="top-middle">
 		<img src="../img/b2.jpg"/>
 		<div class="one-bottom">
 			<object><a href="#" class="tit" id="La">
@@ -160,8 +160,8 @@
 			<object><a href="#" class="btn">直接购买</a></object>
 		</div>
 	
-</a>
-	</div>
+</a> 
+	</div>-->
 </div>
 </div>
 
@@ -213,3 +213,39 @@
 
 </body>
 </html>
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+           type:"get",
+            url:"../php/getGoodsList.php",
+            success:function (data) {
+                showgoodsList(data);
+            },
+            dataType:"json"
+        });
+    });
+
+    function showgoodsList(datas) {
+        let $ulbox = $(".p-top");
+        
+        for(let i=0;i<datas.length;i++){
+            //1、创建li
+            let str="<a href='#' class='top-middle' styel='margin-right=20px'><div class='top' style='float:left'><img src='"+datas[i].goodsImg+"'/><div class='one-bottom'><object><a href='#' class='tit' id='La'><h4>"+datas[i].goodsType+"</h4><p>"+datas[i].goodsName+"</p><span>"+datas[i].goodsPrice+"</span></a></object><object><a href='#' class='btn'>直接购买</a></object></div></div></a>";
+            $ulbox.append(str);
+        }
+        
+    }
+</script>
+
+<!--<div class=''><img src="../img/x1.jpg"/>
+		<div class="one-bottom">
+			<object><a href="#" class="tit" id="La">
+			 <h4>未来新肌</h4>
+			<p>提拉紧塑精华</p>
+			<span>￥790.00-30ML</span>
+			</a></object>
+			<object><a href="#" class="btn">直接购买</a></object>
+		</div>-->
+
+		<!-- <li class='fl_l ovf'><div id='list-car'><a href='javascript:;'><img src='"+datas[i].goodsImg+"' alt></a></div><div class='goods-img'><a href='details.html'><img src='../img/217427506E00_p3.jpg' data-true='../img/217427506E00_p1.jpg' data-toggle='../img/217427506E00_p1.jpg'></a><span class='bg-color-black color-white'>"+datas[i].goodsType+"</span></div>	<a href='#' class='text-c block mart20 goods-tip'>"+datas[i].goodsName+"</a><p class='text-c mart5'></p></li> -->

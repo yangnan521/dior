@@ -9,7 +9,7 @@
 	<title>shopping</title>
 	<link rel="stylesheet" type="text/css" href="../css/public.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/iconfont.css">
-	<link rel="stylesheet" type="text/css" href="../css/login.css">
+	<link rel="stylesheet" type="text/css" href="../css/shopping.css">
 </head>
 <body>
 <!-- header -->
@@ -53,33 +53,40 @@
 		<a href="#">配饰</a>
 		<a href="#">高级定制</a>
 	</nav>
+<section>
+	<div class="shop">
+		<div class="goostop">
+			<span>1.购物袋&nbsp;&nbsp;<b> < </b> </span> 
+			<span>2.提交订单&nbsp;&nbsp;<b> < </b> </span><span>3.支付</span>
+		</div>
+		
+		<h2>全部商品</h2>
+		<div class="goodshead">
+		<input id="checkedAllId" type="checkbox"/>全选
+		<i class="goods">商品 </i> 
+		 <i class="goodsnum">数量 </i>
+		   <i class="goodsprice">单价 </i>
+		<input id="btnUnCheckId" type="button" value="反选">
+		</div>
+		<ul id="list">
+		    <li><i><input type="checkbox"/></i>
+				<img src="../img/x1.jpg">
+		    </li>
+		    <li><label><input type="checkbox"/>2.小苹果</label></li>
+		    <li><label><input type="checkbox"/>3.浪迹天涯</label></li>
+		    <li><label><input type="checkbox"/>4.小花花</label></li>
+		    <li><label><input type="checkbox"/>5.你是我的眼</label></li>
+		    <li><label><input type="checkbox"/>6.天南地北</label></li>
+		</ul>
+	</div>
 
-<div class="log">
-      <h3>登录或创建帐户</h3>
-      <div class="log-L">
-		   <p class="L-title">注册Dior账户</p>
-		    <p class="form-instructions">注册Dior账号以便追踪您的订单，管理收货地址，获取更多<br/>个性化信息</p>
-			<a href="register.html">创建帐户</a>
-      </div>
-      <div class="log-R">
-		   <p class="L-title">Dior会员登录</p>
-		    <form method="post" action="regsave.php" id="f">
-				<label class="user">手机号*</label> 
-				<input id="phone"  name="userPhone" class="inputs userPhone" type="text" placeholder=" 手机号"/><span id="spanphone"></span><br/>
+</section>
 
-				<label class="pass">密码*</label> 
-				<input id="pass"  name="userPass" class="inputs userPass" type="password" placeholder=" 密码"/><span id="spanpass"></span><br/>
-			</form>
-			<a href="" class="forgetPass">忘记密码？</a>
-			<a href="" class="Logins">登录</a>
-			
-			<div class="otherLogin"><span>使用第三方账号登录</span></div>
-			
-			<a href="#"><i class="iconfont icon-weixin"></i>
-			<i class="iconfont icon-zhifubaozhifu"></i></a>
-      </div>
 
-  </div>
+
+
+
+
 <!-- footer -->
 <footer>
 	<div class="foot">
@@ -126,31 +133,54 @@
 </html>
 <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		$(function(){
+//jQuery插件
 
-	$("#phone").blur(function(){
-		 var regPhone = /^1(3|4|5|7|8|9)\d{9}$/;  //一共十一位数，1开头，后面是十位数字
-		var userphone = $("#phone").val();
-		if(!regPhone.test(userphone)){
-			$("#spanphone").html("×");
-			$("#spanphone").css({"color":"red"});
-		}else{
-			$("#spanphone").html("√");
-		}
-		
-	});
+jQuery.fn.extend({
+    "checkAll":function (isChecked) {
+        //this是jQuery对象
+        this.each(function () {
+            this.checked = isChecked;
+        })
+    },
 
-	$("#pass").blur(function(){
-		 var regPass =/^[a-zA-Z]\w{5,19}$/; 
-		var userpass = $("#pass").val();
-		if(!regPass.test(userpass)){
-			$("#spanpass").html("×");
- 			$("#spanpass").css({"color":"red"});
-		}else{
-			$("#spanpass").html("√");
-		}
-	});
+    "uncheck":function () {
+        //this是jQuery对象
+        this.each(function () {
+            this.checked = !this.checked;
+        })
+    },
+    //全选的复选框和子复选框的关联
+    "checkRelation":function ($sub) {
+        $parent = this;
+        //全选的功能（父控制子）
+        this.click(function () {
+            $sub.checkAll($parent[0].checked);
+            //$("#list :checkbox").checkAll(this.checked);
+        });
+        //联动（子控制父：子复选框有改变，那么父复选框也要有对应的改变）
+        $sub.click(function () {
+            //1、遍历所有的子复选框
+            let isChecked = true;
+            $sub.each(function () {
+                if(this.checked==false){
+                    isChecked = false;
+                }
+            })
+            //2、改变父复选框的状态
+            $parent[0].checked = isChecked;
+        });
+    }
 });
-	});
+
+
+//主函数
+$(function(){
+    //这个函数的作用是把一个复选框和很多复选框关联起来了。
+    $("#checkedAllId").checkRelation($("#list :checkbox"));
+
+    $("#btnUnCheckId").click(function () {
+        $("#list :checkbox").uncheck();
+    });
+});
+
 </script>

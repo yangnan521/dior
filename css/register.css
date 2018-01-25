@@ -59,4 +59,10 @@ nav {
       .reg .register form .submit {
         float: right;
         margin-right: 160px;
-        margin-top: 20px; }
+        margin-top: 20px;
+        width: 80px;
+        height: 30px;
+        background: black;
+        color: white;
+        outline: none;
+        border: none; }
