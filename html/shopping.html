@@ -64,29 +64,36 @@
 		<div class="goodshead">
 		<input id="checkedAllId" type="checkbox"/>全选
 		<i class="goods">商品 </i> 
-		 <i class="goodsnum">数量 </i>
 		   <i class="goodsprice">单价 </i>
+		     <i class="goodsnum">数量 </i>
+		      <i class="goodsmoney">小计 </i>
 		<input id="btnUnCheckId" type="button" value="反选">
 		</div>
 		<ul id="list">
-		    <li><i><input type="checkbox"/></i>
-				<img src="../img/x1.jpg">
+		    <li id="lis"><i><input class="input1" type="checkbox"/></i>
+		    	<img src="../img/x1.jpg"><b class="b1">提拉紧塑精华</b> 
+			        <b class="b2" id='danjia'>790.00</b>
+			        <span><input class="btn"  type="button" id='mul' value="-">
+			        <input id="acount" type="text" value="1">
+			        <input class="btn" type="button" value="+" id='add'></span>
+			        <strong class="b4" id='subtotal'>790.00</strong>
+			        <b class="b3"><i id="delete">删除</i></b>
 		    </li>
-		    <li><label><input type="checkbox"/>2.小苹果</label></li>
-		    <li><label><input type="checkbox"/>3.浪迹天涯</label></li>
-		    <li><label><input type="checkbox"/>4.小花花</label></li>
-		    <li><label><input type="checkbox"/>5.你是我的眼</label></li>
-		    <li><label><input type="checkbox"/>6.天南地北</label></li>
+		    <li id="lis1"><i><input class="input1" type="checkbox"/></i>
+		    	<img src="../img/x2.jpg"><b class="b1">提拉紧塑精华</b> 
+			          <b class="b2" id='danjia1'>790.00</b>
+			        <span><input class="btn"  type="button" id='mul1' value="-">
+			        <input id="acount1" type="text" value="1">
+			        <input class="btn"  type="button" value="+" id='add1'></span>
+			        <strong class="b4" id='subtotal1'>790.00</strong>
+			        <b class="b3"><i id="delete1">删除</i></b>
+		    </li>
+		    <li>结算：<em id="totalMoney">0</em></li>
+		   
 		</ul>
-	</div>
+</div>
 
 </section>
-
-
-
-
-
-
 <!-- footer -->
 <footer>
 	<div class="foot">
@@ -181,6 +188,118 @@ $(function(){
     $("#btnUnCheckId").click(function () {
         $("#list :checkbox").uncheck();
     });
+
+$("#delete").click(function(){
+	//this.parentNode.parentNode.removeChild();
+	$("#lis").css({"display":"none"})
+});
+$("#delete1").click(function(){
+	$("#lis1").css({"display":"none"})
 });
 
+
+var aCount = document.getElementById('acount').value;
+var zongjia=0;
+
+
+        $('#add').click(function(){
+		aCount++;
+		
+		if (aCount <= 1){
+			aCount=1;
+		}
+		document.getElementById('acount').value = aCount;
+		// 
+		setTotal();  
+	})
+	
+	$('#mul').click(function(){
+		aCount--;
+		if (aCount <= 1){
+			aCount=1;
+		}
+		document.getElementById('acount').value = aCount;
+
+		setTotal();  
+	});
+	
+
+	$('#subtotal')
+	function setTotal(){
+		var s = 0;
+		$('#list').each(function(){
+			var d = $(this).find('#danjia').text();//单价
+			var n = $(this).find('#acount').val();//数量
+			if(parseInt(d)=='' || undefined || null || isNaN(d) || isNaN(parseInt(n))){
+				d = 0;
+			}
+			s += parseInt(d) * parseFloat(n);
+		});
+		$('#list1').each(function(){
+			var d = $(this).find('#danjia').text();//单价
+			var n = $(this).find('#acount').val();//数量
+			if(parseInt(d)=='' || undefined || null || isNaN(d) || isNaN(parseInt(n))){
+				d = 0;
+			}
+			s += parseInt(d) * parseFloat(n);
+		});
+		$('#subtotal').html(s.toFixed(2));
+
+	}
+
+
+
+
+});
+
+	var aCount1 = document.getElementById('acount1').value;
+
+        $('#add1').click(function(){
+		aCount1++;
+		
+		if (aCount1 <= 1){
+			aCount1=1;
+		}
+		document.getElementById('acount1').value = aCount1;
+		setTotal();  
+	})
+	
+	$('#mul1').click(function(){
+		aCount1--;
+		if (aCount1 <= 1){
+			aCount1=1;
+		}
+		document.getElementById('acount1').value = aCount1;
+		setTotal();  
+	});
+$('#subtotal1')
+	function setTotal(){
+		var s = 0;
+		$('#list').each(function(){
+			var d = $(this).find('#danjia1').text();//单价
+			var n = $(this).find('#acount1').val();//数量
+			if(parseInt(d)=='' || undefined || null || isNaN(d) || isNaN(parseInt(n))){
+				d = 0;
+			}
+			s += parseInt(d) * parseFloat(n);
+		});
+
+		$('#list1').each(function(){
+			var d = $(this).find('#danjia1').text();//单价
+			var n = $(this).find('#acount1').val();//数量
+			if(parseInt(d)=='' || undefined || null || isNaN(d) || isNaN(parseInt(n))){
+				d = 0;
+			}
+			s += parseInt(d) * parseFloat(n);
+		});
+		$('#subtotal1').html(s.toFixed(2));
+
+	} 
+
+	$('.btn').click(function(){
+		 $('#checkedAllId').checked=true;
+		 zongjia=parseInt($('#subtotal').html())+parseInt($('#subtotal1').html());
+		 $('#totalMoney').html(zongjia);
+	
+	});
 </script>

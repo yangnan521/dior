@@ -6,22 +6,22 @@ var sass= require('gulp-sass');//sass命令
 
 gulp.task('copy-html',function(){
 	gulp.src('html/*.html')
-	.pipe(gulp.dest('D:\\phpStudy\\WWW\\hello\\html'));
+	.pipe(gulp.dest('D:\\phpStudy\\WWW\\project\\html'));
 });
 
 gulp.task('copy-img',function(){
 	gulp.src('img/**/*')
-	.pipe(gulp.dest('D:\\phpStudy\\WWW\\hello\\img'));
+	.pipe(gulp.dest('D:\\phpStudy\\WWW\\project\\img'));
 })
 gulp.task('copy-font',function(){
 	gulp.src('font/**/*')
-	.pipe(gulp.dest('D:\\phpStudy\\WWW\\hello\\font'));
+	.pipe(gulp.dest('D:\\phpStudy\\WWW\\project\\font'));
 })
 
 gulp.task('copy-css',function(){
 	gulp.src('scss/*.scss')
 	.pipe(sass())
-	.pipe(gulp.dest('D:\\phpStudy\\WWW\\hello\\css'));
+	.pipe(gulp.dest('D:\\phpStudy\\WWW\\project\\css'));
 })
 
 gulp.task('copy-scss',function(){
@@ -31,11 +31,11 @@ gulp.task('copy-scss',function(){
 })
 
 gulp.task('copy-js',function(){
-	gulp.src('js/*.js').pipe(gulp.dest('D:\\phpStudy\\WWW\\hello\\js'));
+	gulp.src('js/*.js').pipe(gulp.dest('D:\\phpStudy\\WWW\\project\\js'));
 })
 
 gulp.task('copy-php',function(){
-	gulp.src('php/*.php').pipe(gulp.dest('D:\\phpStudy\\WWW\\hello\\php'));
+	gulp.src('php/*.php').pipe(gulp.dest('D:\\phpStudy\\WWW\\project\\php'));
 })
 
 gulp.task('watch',function(){
